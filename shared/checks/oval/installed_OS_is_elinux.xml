@@ -1,0 +1,38 @@
+<def-group>
+  <definition class="inventory" id="installed_OS_is_elinux" version="1">
+    <metadata>
+      <title>WRLinux</title>
+      <affected family="unix">
+        <platform>multi_platform_all</platform>
+      </affected>
+      <reference ref_id="cpe:/o:enea:elinux"
+      source="CPE" />
+      <description>The operating system installed on the system is
+      Enea Linux</description>
+    </metadata>
+    <criteria>
+      <criterion comment="Installed operating system is part of the unix family" test_ref="test_unix_elinux" />
+      <criterion comment="ELinux is installed" test_ref="test_elinux" />
+    </criteria>
+  </definition>
+
+  <ind:family_test check="all" check_existence="at_least_one_exists" comment="installed OS part of unix family" id="test_unix_elinux" version="1">
+    <ind:object object_ref="obj_unix_elinux" />
+    <ind:state state_ref="state_unix_elinux" />
+  </ind:family_test>
+
+  <ind:family_state id="state_unix_elinux" version="1">
+    <ind:family>unix</ind:family>
+  </ind:family_state>
+
+  <ind:family_object id="obj_unix_elinux" version="1" />
+
+  <file_test xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#unix" check_existence="at_least_one_exists" version="1" id="test_linux" check="all" comment="Test presence of /etc/elinux-release.">
+      <object object_ref="obj_test_elinux" />
+  </file_test>
+
+  <file_object xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#unix" version="1" id="obj_test_elinux" >
+      <filepath>/etc/elinux-release</filepath>
+  </file_object>
+
+</def-group>

@@ -1,0 +1,7 @@
+<Group id="base">
+<title>Base Services</title>
+<description>
+	This section addresses the base services that are installed on a Enea Linux default installation. System services which is not required should be disabled.
+</description>
+
+</Group>
