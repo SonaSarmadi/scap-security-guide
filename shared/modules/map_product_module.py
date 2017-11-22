@@ -77,7 +77,7 @@ def map_product(version):
         return SUSE
     if version.startswith("wrlinux"):
         return WRLINUX
-   if version.startswith("elinux"):
+    if version.startswith("elinux"):
         return ELINUX
 
     raise RuntimeError("Can't map version '%s' to any known product!"
